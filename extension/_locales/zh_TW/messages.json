@@ -1,0 +1,14 @@
+{
+   "ext_name": {
+      "description": "Extension name.",
+      "message": "Easily Control Extensions"
+   },
+   "ext_description": {
+      "description": "Extension description.",
+      "message": "快速開關 extension"
+   },
+   "msg_check_uninstall": {
+      "description": "Are you sure to uninstall the entension : ",
+      "message": "確定要移除套件: \n「#{name}」?"
+   }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>__MSG_ext_name__</title>
+  <link rel="stylesheet" href="popup.css">
+  <style id="filter-style"></style>
+</head>
+<body>
+
+  <input type="search" tabindex="1" id="ext-filter" placeholder="extension filter">
+  <div id="ext-list"></div>
+
+<script type="text/template" id="filter-tpl">
+#ext-list label:not([title*="#{kwd}"]){display: none; }
+</script>
+<script type="text/template" id="extension-tpl">
+<label for="#{id}" class="#{class}" title="#{title}" style="background-image: url(#{bgi});">
+  <input type="checkbox" id="#{id}" #{checked}>
+  #{name}
+</label>
+</script>
+<script src="popup.js"></script>
+</body>
+</html>
