@@ -70,10 +70,11 @@ myExt.el.list.addEventListener('change', function(event) {
 });
 
 myExt.el.input.addEventListener('input', function () {
-  var _newFilter = '';
+  var _newFilter = '',
+      _val = myExt.el.input.value.replace(/^\s+|\s+$/g, '');
 
-  if ('' !== myExt.el.input.value.replace(/^\s+|\s+$/g, '')) {
-    _newFilter = myExt.replaceTpl(myExt.filterTpl, {kwd: myExt.el.input.value});
+  if ('' !== _val) {
+    _newFilter = myExt.replaceTpl(myExt.filterTpl, {kwd: _val});
   }
 
   myExt.el.style.innerHTML = _newFilter;
