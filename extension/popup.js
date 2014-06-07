@@ -80,15 +80,15 @@ myExt.el.input.addEventListener('input', function () {
   myExt.el.style.innerHTML = _newFilter;
 });
 
-myExt.el.list.addEventListener('contextmenu', function(event) {
+myExt.el.list.addEventListener('mousedown', function(event) {
+  event.preventDefault();
+  if (3 !== event.which) { return false; }
+
   var _this = event.target;
   if ('label' !== _this.nodeName.toLocaleLowerCase()) { return; }
 
     console.log(_this.getAttribute('for'));
-  if (confirm(myExt.replaceTpl(chrome.i18n.getMessage('msg_check_uninstall'), {name: _this.textContent.replace(/\n|\r|\s/gm, '')}))) {
-    chrome.management.uninstall(_this.getAttribute('for'), myExt.generateList);
-  }
-  event.preventDefault();
+    chrome.management.uninstall(_this.getAttribute('for'), {showConfirmDialog: true}, myExt.generateList);
 });
 
 myExt.generateList();
